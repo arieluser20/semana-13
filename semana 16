@@ -1,0 +1,12 @@
+# Escritura en un archivo de texto
+with open("my_notes.txt", "w") as file:
+    file.write("Primera nota: Aprender sobre manejo de archivos en Python.\n")
+    file.write("Segunda nota: Practicar con open(), write(), y read().\n")
+    file.write("Tercera nota: Subir el código a GitHub.\n")
+
+# Lectura del archivo línea por línea
+with open("my_notes.txt", "r") as file:
+    for line in file:
+        print(line.strip())  # Imprimir cada línea eliminando espacios en blanco y saltos de línea
+
+# El uso de 'with open()' garantiza que el archivo se cierre automáticamente
