@@ -1,0 +1,32 @@
+import requests
+
+def analizar_seguridad_http(url):
+    try:
+        response = requests.get(url)
+        headers = response.headers
+
+        print(f"\n🔎 Analizando: {url}")
+        print(f"➡ Código de estado: {response.status_code}")
+        print(f"➡ Usando HTTPS: {'Sí' if url.startswith('https') else 'No'}\n")
+
+        cabeceras_seguridad = [
+            "Content-Security-Policy",
+            "Strict-Transport-Security",
+            "X-Content-Type-Options",
+            "X-Frame-Options",
+            "X-XSS-Protection",
+            "Referrer-Policy"
+        ]
+
+        for cabecera in cabeceras_seguridad:
+            if cabecera in headers:
+                print(f"✅ {cabecera}: {headers[cabecera]}")
+            else:
+                print(f"⚠️ {cabecera} NO está presente")
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error al conectar con la página: {e}")
+
+# Ejemplo de uso:
+url = input("Ingresa la URL del sitio web (incluye http o https): ")
+analizar_seguridad_http(url)
