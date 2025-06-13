@@ -10,12 +10,12 @@ def analizar_seguridad_http(url):
         print(f"➡ Usando HTTPS: {'Sí' if url.startswith('https') else 'No'}\n")
 
         cabeceras_seguridad = [
-            "Content-Security-Policy",
-            "Strict-Transport-Security",
-            "X-Content-Type-Options",
-            "X-Frame-Options",
-            "X-XSS-Protection",
-            "Referrer-Policy"
+           # "Content-Security-Policy",
+            #"Strict-Transport-Security",
+            #"X-Content-Type-Options",
+            #"X-Frame-Options",
+            #"X-XSS-Protection",
+            #"Referrer-Policy"
         ]
 
         for cabecera in cabeceras_seguridad:
